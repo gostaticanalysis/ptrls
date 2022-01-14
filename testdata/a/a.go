@@ -1,17 +1,10 @@
 package main
 
-import (
-	"bytes"
-	"fmt"
-	"io"
-	"os"
-)
-
 func main() {
-	f(os.Stdout)
-	f(new(bytes.Buffer))
+	f(map[string]int{})
+	f(map[string]int{})
 }
 
-func f(w io.Writer) {
-	fmt.Println(w, "hello")
+func f(m map[string]int) {
+	println(len(m))
 }

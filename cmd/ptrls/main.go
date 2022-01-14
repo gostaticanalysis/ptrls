@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strconv"
 
 	"github.com/gostaticanalysis/ptrls"
@@ -41,7 +42,8 @@ func run(args []string) error {
 	for n, ptr := range ptrs {
 		fmt.Println(n)
 		for _, l := range ptr.PointsTo().Labels() {
-			fmt.Println("\t", l)
+			p := filepath.Base(prog.Fset.Position(l.Pos()).String())
+			fmt.Println("\t", p, l.Value().Type())
 		}
 		fmt.Println()
 	}

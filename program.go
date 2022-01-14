@@ -22,7 +22,7 @@ type Program struct {
 }
 
 func buildSSA(fset *token.FileSet, pkgs []*packages.Package) (*Program, error) {
-	mode := ssa.GlobalDebug | ssa.NaiveForm
+	mode := ssa.GlobalDebug// | ssa.NaiveForm
 	prog := ssa.NewProgram(fset, mode)
 
 	// Create SSA packages for all imports.
